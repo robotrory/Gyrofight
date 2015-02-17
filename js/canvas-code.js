@@ -10,6 +10,18 @@
 		var bulletRange = window.innerHeight/5;
 		var bulletSpeed = 3;
 
+		var playerWin = function (player) {
+
+			if(player == player1){
+				$('#whoWins').text("1");
+			}else{
+				$('#whoWins').text("2");
+			}
+
+			$('.gameOver').fadeIn();
+
+		}
+
         var drawCanvas = function(){
 			var c = document.getElementById("main");
 			c.width = window.innerWidth;
@@ -89,6 +101,7 @@
       		ctx.strokeStyle = '#003300';
 
 			
+			if(player1.lives > 0){
 
 			//now we can draw any bullets we have
 			for(var i=0; i<player1.bullets.length; i++){
@@ -98,12 +111,24 @@
       			ctx.stroke();
 			}
 
+			}else{
+				playerWin(2);
+			}
+
+			if(player1.lives > 0){
+
 			for(var i=0; i<player2.bullets.length; i++){
 				ctx.beginPath();
       			ctx.arc(player2.bullets[i].x, player2.bullets[i].y, bulletRadius, 0, 2 * Math.PI, false);
       			ctx.fill();
       			ctx.stroke();
 			}
+
+			}else{
+				playerWin(1);
+			}
+
 				
 		}
 		setInterval(drawCanvas, 20);			
+			}

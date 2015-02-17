@@ -17,6 +17,14 @@ app.post( '/pusher/auth', function( req, res ) {
   res.send( auth );
 } );
 
+app.get('/', function( req, res ) {
+  res.sendfile('game.html');
+} );
+
+app.get('/mobile', function( req, res ) {
+  res.sendfile('phone.html');
+} );
+
 app.all('*', function( req, res ) {
   console.log(req.originalUrl);
   res.sendfile( __dirname + req.originalUrl );

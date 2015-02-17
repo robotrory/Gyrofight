@@ -1,0 +1,144 @@
+    	* {margin:0; padding:0;}
+    	.sky {
+			position:fixed; 
+			top:0; 
+			left:0;
+			width:100%;
+			height:100%;
+			z-index:1;	
+		}
+		.cityscape {
+			position:fixed; 
+			top:0; 
+			left:0;
+			width:100%;
+			height:100%;
+			z-index:2;	
+		}
+		
+		/* The css that change the hue of the sky */
+		.hueChanger {
+			-webkit-animation: hueChange 60s; /* Chrome, Safari, Opera */
+			animation: hueChange 60s;
+			-webkit-animation-iteration-count: infinite;
+		
+		}
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes hueChange {
+			from {
+				filter: hue-rotate(0deg);
+				-webkit-filter: hue-rotate(0deg);
+				-moz-filter: hue-rotate(0deg);
+				-o-filter: hue-rotate(0deg);
+				-ms-filter: hue-rotate(0deg);	
+			}
+			to {
+				filter: hue-rotate(360deg);
+				-webkit-filter: hue-rotate(360deg);
+				-moz-filter: hue-rotate(360deg);
+				-o-filter: hue-rotate(360deg);
+				-ms-filter: hue-rotate(360deg);	
+			}
+		}
+		@keyframes hueChange {
+			from {
+				filter: hue-rotate(0deg);
+				-webkit-filter: hue-rotate(0deg);
+				-moz-filter: hue-rotate(0deg);
+				-o-filter: hue-rotate(0deg);
+				-ms-filter: hue-rotate(0deg);	
+			}
+			to {
+				filter: hue-rotate(360deg);
+				-webkit-filter: hue-rotate(360deg);
+				-moz-filter: hue-rotate(360deg);
+				-o-filter: hue-rotate(360deg);
+				-ms-filter: hue-rotate(360deg);	
+			}
+		}
+		
+		
+		/* This is the css code that changes the clouds */
+		.cloud1 {
+			width:250px;
+			height:101px;
+			position:fixed;
+			left:1330px;
+			-webkit-animation: cloudMover1 60s; /* Chrome, Safari, Opera */
+			animation: cloudMover1 60s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			z-index:5;
+		
+		}
+		.cloud2 {
+			width:250px;
+			height:101px;
+			position:fixed;
+			left:1330px;
+			-webkit-animation: cloudMover2 60s; /* Chrome, Safari, Opera */
+			animation: cloudMover2 60s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			z-index:5;
+		
+		}
+		.cloud3 {
+			width:250px;
+			height:101px;
+			position:fixed;
+			left:1330px;
+			-webkit-animation: cloudMover3 60s; /* Chrome, Safari, Opera */
+			animation: cloudMover3 60s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			z-index:5;
+		}
+		@-webkit-keyframes cloudMover1 {
+			from {
+				left:1330px;
+			}
+			to {
+				left:-250px;
+			}
+		}
+		@keyframes cloudMover1 {
+			from {
+				left:1330px;
+			}
+			to {
+				left:-250px;
+			}
+		}
+		@-webkit-keyframes cloudMover2 {
+			from {
+				left:2600px;
+			}
+			to {
+				left:-250px;
+			}
+		}
+		@keyframes cloudMover2 {
+			from {
+				left:2600px;
+			}
+			to {
+				left:-250px;
+			}
+		}
+		@-webkit-keyframes cloudMover3 {
+			from {
+				left:3600px;
+			}
+			to {
+				left:-250px;
+			}
+		}
+		@keyframes cloudMover3 {
+			from {
+				left:1530px;
+			}
+			to {
+				left:-250px;
+			}
+		}

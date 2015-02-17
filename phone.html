@@ -42,6 +42,7 @@ body {
 	width:100%;
 	height:100%;
 	z-index:2;
+	display:none;
 		
 }
 </style>
@@ -67,9 +68,9 @@ function getParameterByName(name) {
   y = event.beta;
   z = event.gamma;
 
-  $('#x-coord').text("x: "+x);
+/*  $('#x-coord').text("x: "+x);
   $('#y-coord').text("y: "+y);
-  $('#z-coord').text("z: "+z);
+  $('#z-coord').text("z: "+z);*/
 
 }, false);
 
@@ -90,7 +91,7 @@ $(document).ready(function(){
 	});
 
 	$('#landscape').click(function(){
-
+		$('#bang').show().delay(100).fadeOut();
 		touched = true;
 
 	});
@@ -129,11 +130,11 @@ setInterval(function () {
 <body>
 <div id="startTarget">Click Me to get started</div>
 <div id="landscape" style="display:none;">
-<div id="bang"><img src="img/bang.jpg" width="430" height="430"></div>
-<p>Hi, I'm only visible in fullscreen landscape mode</p>
+<div id="bang"><center><img src="img/bang2.png" width="215" height="215"></center></div>
+<!--<p>Hi, I'm only visible in fullscreen landscape mode</p>
 <p id="x-coord">x: null</p>
 <p id="y-coord">y: null</p>
-<p id="z-coord">z: null</p>
+<p id="z-coord">z: null</p>-->
 </div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 		player2Image.src = "img/target_standing.png";
 
 		var bulletRadius = window.innerHeight/100;
-		var bulletRange = window.innerHeight/10;
+		var bulletRange = window.innerHeight/5;
 		var bulletSpeed = 3;
 
         var drawCanvas = function(){
@@ -50,7 +50,11 @@
 			for(var i=0; i<player1.bullets.length; i++){
 				player1.bullets[i].y -= bulletSpeed;
 
-				if(Math.abs(player1y -player1.bullets[i].y) < bulletRange){
+				if(player1.bullets[i].y > player2y && player1.bullets[i].y < (player2y + player2ImageHeight)
+					&& player1.bullets[i].x > player2x && player1.bullets[i].x < (player2x + player2ImageWidth)){
+					//hit
+					console.log("player 2 hit!");
+				}else if(Math.abs(player1y -player1.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player1TempBullets.push(player1.bullets[i]);
 				}
 			}
@@ -60,11 +64,16 @@
 			for(var i=0; i<player2.bullets.length; i++){
 				player2.bullets[i].y += bulletSpeed;
 
-				if(Math.abs(player2y -player2.bullets[i].y) < bulletRange){
+				if(player2.bullets[i].y > player1y && player2.bullets[i].y < (player1y + player1ImageHeight)
+					&& player2.bullets[i].x > player1x && player2.bullets[i].x < (player1x + player1ImageWidth)){
+					//hit
+					console.log("player 1 hit!");
+				}else if(Math.abs(player2y -player2.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player2TempBullets.push(player2.bullets[i]);
 				}
 			}
 			player2.bullets = player2TempBullets;
+
 
 
 

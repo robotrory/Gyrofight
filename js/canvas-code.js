@@ -28,11 +28,7 @@
 			var player2ImageWidth = 47;
 			var player2ImageHeight = 132;
 
-			//palyer 1
-			ctx.drawImage(player1Image,player1x,player1y,player1ImageWidth,player1ImageHeight);
-
-			//player 2
-			ctx.drawImage(player2Image,player2x,player2y,player2ImageWidth,player2ImageHeight);
+			
 
 			//add any necessary bullets
 			if(player1.shouldShoot){
@@ -53,6 +49,7 @@
 				if(player1.bullets[i].y > player2y && player1.bullets[i].y < (player2y + player2ImageHeight)
 					&& player1.bullets[i].x > player2x && player1.bullets[i].x < (player2x + player2ImageWidth)){
 					//hit
+					player2.lives --;
 					console.log("player 2 hit!");
 				}else if(Math.abs(player1y -player1.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player1TempBullets.push(player1.bullets[i]);
@@ -67,6 +64,7 @@
 				if(player2.bullets[i].y > player1y && player2.bullets[i].y < (player1y + player1ImageHeight)
 					&& player2.bullets[i].x > player1x && player2.bullets[i].x < (player1x + player1ImageWidth)){
 					//hit
+					player1.lives --;
 					console.log("player 1 hit!");
 				}else if(Math.abs(player2y -player2.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player2TempBullets.push(player2.bullets[i]);
@@ -75,6 +73,15 @@
 			player2.bullets = player2TempBullets;
 
 
+			//player 1
+			ctx.globalAlpha = player1.lives/5;
+			ctx.drawImage(player1Image,player1x,player1y,player1ImageWidth,player1ImageHeight);
+
+			//player 2
+			ctx.globalAlpha = player2.lives/5;
+			ctx.drawImage(player2Image,player2x,player2y,player2ImageWidth,player2ImageHeight);
+
+			ctx.globalAlpha = 1.0;
 
 
       		ctx.fillStyle = 'green';

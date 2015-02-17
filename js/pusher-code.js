@@ -3,8 +3,8 @@
     var pusher = new Pusher('bf741a8a4c211bec9b6b');
 	var channel = pusher.subscribe('private-game-id-'+sessionNum);
 
-	var player1 = {'connected':false,'x':50, 'shouldShoot':false, 'bullets': []};
-	var player2 = {'connected':false,'x':50, 'shouldShoot':false, 'bullets': []};
+	var player1 = {'lives':5, 'connected':false,'x':50, 'shouldShoot':false, 'bullets': []};
+	var player2 = {'lives':5, 'connected':false,'x':50, 'shouldShoot':false, 'bullets': []};
 
     channel.bind('client-coord-update',function(data) {
     //do something soon

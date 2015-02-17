@@ -1,4 +1,11 @@
 // Canvas code goes here
+
+		var player = new Image();
+		player.src = "img/mainplayer.png";
+		
+		var otherPlayer = new Image();
+		otherPlayer.src = "img/target_standing.png";
+
         var drawCanvas = function(){
 			var c = document.getElementById("main");
 			c.width = window.innerWidth;

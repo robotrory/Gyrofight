@@ -13,9 +13,9 @@
 		var playerWin = function (player) {
 
 			if(player == player1){
-				$('#whoWins').text("1");
+				$('#winner').text("Player 1");
 			}else{
-				$('#whoWins').text("2");
+				$('#winner').text("Player 2");
 			}
 
 			$('.gameOver').fadeIn();
@@ -131,4 +131,4 @@
 				
 		}
 		setInterval(drawCanvas, 20);			
-			}
+			

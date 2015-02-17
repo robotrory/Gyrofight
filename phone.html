@@ -8,6 +8,14 @@
   <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
     var x,y,z;
     var touched = isFullscreen = false;
 
@@ -28,12 +36,6 @@
 	var channel = pusher.subscribe('private-game-id');
 
 
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
 
 
 $(document).ready(function(){
@@ -43,6 +45,12 @@ $(document).ready(function(){
 		screen.orientation.lock('landscape-primary');
 		$('#startTarget').css({'display':'none'});
 		$('#landscape').css({'display':'block'});
+	});
+
+	$('#landscape').click(function(){
+
+		touched = true;
+
 	});
 
 	

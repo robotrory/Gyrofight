@@ -24,10 +24,16 @@
 }, false);
 
     var pusher = new Pusher('bf741a8a4c211bec9b6b');
-	var channel = pusher.subscribe('private-channel');
+	// var channel = pusher.subscribe('private-game-id-'+getParameterByName('sessionNumber'));
+	var channel = pusher.subscribe('private-game-id');
 
 
-
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 
 $(document).ready(function(){
@@ -59,7 +65,7 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 setInterval(function () {
 
 	if(isFullscreen){
-		channel.trigger('client-coord-update', { 'x': x, 'y': y, 'z': z, 'touched': touched });
+		channel.trigger('client-coord-update', { 'x': x, 'y': y, 'z': z, 'touched': touched, 'player': getParameterByName('player') });
 
 		if(touched){
 			touched = false;

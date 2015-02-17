@@ -3,36 +3,44 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/gameui.css"> 
 	<style type="text/css">
-		.QRcontainer {
-			width:100%;
-			height:500px;
-			position:fixed;
-			top:300px;	
-			left:0px;
-		}
-		.QRoverlay {
+		.click-past {
+			padding:10px; 
+			width:500px;
+			height:30px;
+			background-color:#C30;
+			color:#fff;
+			font-size:25px;
+			font-family:Arial, Helvetica, sans-serif;	
+			-webkit-box-shadow: 0px 0px 10px #C30;
+			-moz-box-shadow: 0px 0px 10px #C30;
+			box-shadow: 0px 0px 10px #C30;
 			margin-left:auto;
-			margin-right:auto; 
-			width:600px; 
-			height:500px;
-			background-color:#000;
-			opacity:0.7;
-			-webkit-box-shadow: 0px 0px 10px #000000;
-			-moz-box-shadow: 0px 0px 10px #000000;
-			box-shadow: 0px 0px 10px #000000;
-		}
-		#main {
-			position:fixed;
-			top:0px;
-			left:0px;
-			width:100%;
-			height:100%;
-			z-index:10;	
+			margin-right:auto;
+			margin-top:40px;
+
 		}
     </style>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/qrcode.min.js"></script>
     <script type="text/javascript">
 		// QR Code goes here
+		function generateQR(qrDivName,urlToEncode){
+			alert(urlToEncode);
+			var qrcode = new QRCode(document.getElementById("qrcode1"), {
+			width : 100,
+			height : 100
+			});
+			qrcode.makeCode(urlToEncode);
 		
+		}
+		var sessionNum = Math.floor(Math.random() * 100000);
+		//var x1 = generateQR("qrcode1", "https://smithyproductions.ngrok.com/mobile?sessionNumber=" + sessionNum + "&player=1");
+		//var y1 = generateQR("qrcode2", "https://smithyproductions.ngrok.com/mobile?sessionNumber=" + sessionNum + "&player=2");
+  		var qrcode = new QRCode(document.getElementById("qrcode1"), {
+			width : 100,
+			height : 100
+			});
+			qrcode.makeCode("https://smithyproductions.ngrok.com/mobile?sessionNumber=" + sessionNum + "&player=2");
 		// Load in player Images
     var pusher = new Pusher('bf741a8a4c211bec9b6b');
 	var channel = pusher.subscribe('private-channel');
@@ -67,17 +75,26 @@
 		setInterval(drawCanvas, 20);
     	
     </script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    
+    
 </head>
 <body>
 	<div class="QRcontainer">
         <div class="QRoverlay">
             <div class="QRplayer1">
-            	Player 1
+            	Player 1<br>
+                <div class="qrcode1">
+                
+                </div>
             </div>
             <div class="QRplayer2">
-             	Player 2
+             	Player 2<br>
+                <div class="qrcode2">
+                
+                </div>
             </div>
+            <div style="float:none; clear:both; margin-top:20px;"></div>
+            <div class="click-past">Ready Up!</div>
         </div>
     </div>
 	<img class="sky hueChanger" src="img/sky.png" />

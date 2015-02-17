@@ -1,7 +1,7 @@
 
 		// Load in player Images
     var pusher = new Pusher('bf741a8a4c211bec9b6b');
-	var channel = pusher.subscribe('private-channel');
+	var channel = pusher.subscribe('private-game-id');
 
 	var player1 = {'y':50, 'shouldShoot':false};
 	var player2 = {'y':50, 'shouldShoot':false};

@@ -24,7 +24,8 @@
 }, false);
 
     var pusher = new Pusher('bf741a8a4c211bec9b6b');
-	var channel = pusher.subscribe('private-channel-id-'+getParameterByName('sessionNumber'));
+	// var channel = pusher.subscribe('private-game-id-'+getParameterByName('sessionNumber'));
+	var channel = pusher.subscribe('private-game-id');
 
 
 function getParameterByName(name) {

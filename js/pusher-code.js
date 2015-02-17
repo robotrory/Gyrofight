@@ -22,9 +22,9 @@
     	if(player1.connected && player2.connected){
     		$('.QRcontainer').fadeOut();
     	}else if(player1.connected){
-    		$('.QRplayer1').fadeOut("<br /><br />Connected!");
+    		$('.QRplayer1').html("<br /><br />Connected!");
     	}else if(player2.connected){
-    		$('.QRplayer2').fadeOut("<br /><br />Connected!");
+    		$('.QRplayer2').html("<br /><br />Connected!");
     	}
 		
   	});

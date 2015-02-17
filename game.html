@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/gameui.css"> 
@@ -33,12 +34,18 @@
 		// QR Code goes here
 		
 		// Load in player Images
+    var pusher = new Pusher('bf741a8a4c211bec9b6b');
+	var channel = pusher.subscribe('private-channel');
+
+    channel.bind('client-coord-update',function(data) {
+    //do something soon
 		var player = new Image();
 		player.src = "img/mainplayer.png";
 		
 		var otherPlayer = new Image();
 		otherPlayer.src = "img/target_standing.png";
-		
+  	});
+
         // Canvas code goes here
         var drawCanvas = function(){
 			var c = document.getElementById("main");

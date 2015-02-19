@@ -6,6 +6,9 @@
 		var player2Image = new Image();
 		player2Image.src = "img/target_standing.png";
 
+		var bangImage = new Image();
+		bangImage.src = "img/bang2.png";
+
 		var bulletRadius = window.innerHeight/100;
 		var bulletRange = window.innerHeight/5;
 		var bulletSpeed = 3;
@@ -63,6 +66,9 @@
 					//hit
 					player2.lives --;
 					console.log("player 2 hit!");
+
+					ctx.drawImage(bangImage,player2x + player2ImageWidth/2 - 100,player2y + player2ImageHeight/2 -100,200,200);
+
 				}else if(Math.abs(player1y -player1.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player1TempBullets.push(player1.bullets[i]);
 				}
@@ -78,6 +84,9 @@
 					//hit
 					player1.lives --;
 					console.log("player 1 hit!");
+
+					ctx.drawImage(bangImage,player1x + player1ImageWidth/2 - 100,player1y + player1ImageHeight/2 -100,200,200);
+
 				}else if(Math.abs(player2y -player2.bullets[i].y) < Math.abs((player1y+player1ImageHeight)-player2y)){
 					player2TempBullets.push(player2.bullets[i]);
 				}
@@ -112,10 +121,10 @@
 			}
 
 			}else{
-				playerWin(2);
+				playerWin(player2);
 			}
 
-			if(player1.lives > 0){
+			if(player2.lives > 0){
 
 			for(var i=0; i<player2.bullets.length; i++){
 				ctx.beginPath();
@@ -125,7 +134,7 @@
 			}
 
 			}else{
-				playerWin(1);
+				playerWin(player1);
 			}
 
 				

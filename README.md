@@ -2,7 +2,7 @@
 GyroFight is a quick and dirty game we made at the SimpleWeb hackathon in 3 hours using the [Pusher](http://pusher.com) realtime API. Players scan special magic QR codes with their devices to connect. Then they battle it out by tilting their devices to move and tapping to shoot. Simple, right?
 
 # To Play
-We've got an instance up and running (hopefully) ready to play so head over to [smithyproductions.noip.me](smithyproductions.noip.me:7654) on your dekstop armed with two mobile devices (with [Chrome mobile](https://www.google.co.uk/chrome/browser/mobile/) installed) and hopefully another person - It's a lot more fun when you're not playing yourself. Then brace for some epic gyro fights @#$%^&*!!!
+We've got an instance up and running (hopefully) ready to play so head over to [smithyproductions.noip.me:7654](smithyproductions.noip.me:7654) on your dekstop armed with two mobile devices (with [Chrome mobile](https://www.google.co.uk/chrome/browser/mobile/) installed) and hopefully another person - It's a lot more fun when you're not playing yourself. Then brace for some epic gyro fights @#$%^&*!!!
 
 # How it works:
 QR codes are generated using [qrcode.js](http://davidshimjs.github.io/qrcodejs/) on the main game page with a unique session id and parameters specifying which player is which. Later each mobile page will send events to the game page, identified by their sessionId and player number.

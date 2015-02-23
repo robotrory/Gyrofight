@@ -53,5 +53,6 @@ So, you want to run it yourself huh?
 Enjoy!
 
 - Ben & Rory
-
+Rory: smith.productions | @Roarster31
+Ben: benallen.info | @Ben_Allen
 
